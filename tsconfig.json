@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@project/*": ["./src/*"]
+        },
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "Node",
+        "target": "es5",
+        "skipLibCheck": true,
+        "composite": true,
+        "declaration": true,
+        "declarationMap": true,
+        "esModuleInterop": true,
+        "outDir": "build",
+        "rootDir": "src",
+        "sourceMap": true
+    },
+    "include": ["src/**/*"]
+}

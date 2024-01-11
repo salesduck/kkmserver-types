@@ -1,0 +1,30 @@
+{
+    "name": "@salesduck/kkmserver-types",
+    "version": "1.0.0",
+    "description": "Describe kkmserver.ru API commands",
+    "types": "build/index.d.ts",
+    "repository": "git@github.com:salesduck/kkmserver-types.git",
+    "author": "dyrkow <webworkdeveloper@gmail.com>",
+    "license": "MIT",
+    "files": [
+        "build"
+    ],
+    "scripts": {
+        "clean": "rm -rf build && rm -rf ./tsconfig.build.tsbuildinfo",
+        "build": "yarn clean && tsc --project ./tsconfig.build.json && tscpaths -p ./tsconfig.build.json -s ./src -o ./build",
+        "lint": "yarn eslint --fix ./src"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "devDependencies": {
+        "@dyrkow/editor-config": "^1.0.0",
+        "@dyrkow/eslint-config": "^1.0.3",
+        "@dyrkow/eslint-config-typescript": "^1.0.1",
+        "@dyrkow/prettier-config": "^1.0.0",
+        "eslint": "^8.41.0",
+        "prettier": "^2.8.8",
+        "tscpaths": "^0.0.9",
+        "typescript": "^4.9.4"
+    }
+}
