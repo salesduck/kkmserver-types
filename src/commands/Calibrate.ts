@@ -1,11 +1,17 @@
-import { CommandName, CommandRequest } from '@project/command';
+import { CommandName, CommandRequest, CommandResponse } from '@project/command';
 
-export type CalibrateCommmandRequest = CommandRequest & {
+/**
+ * Откалибровать весы
+ */
+export type CalibrateCommandRequest = CommandRequest & {
     Command: CommandName.CALIBRATE;
+
+    /*
+     * Установка веса тары на весах. Если 0 то берется текущее значение веса на весах.
+     */
     TareWeight: number;
 };
 
-export type GetWeightCommandRequest = {
+export type CalibrateCommandResponse = CommandResponse & {
     Command: CommandName.CALIBRATE;
-    NumDevice: number;
 };

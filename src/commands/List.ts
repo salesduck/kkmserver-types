@@ -1,5 +1,8 @@
 import { CommandName, CommandStatus } from '@project/command';
 
+/**
+ * Получение списка устройств
+ */
 export type ListCommandRequest = {
     Command: CommandName.LIST;
 
@@ -51,20 +54,49 @@ export type ListCommandRequest = {
 
 export type ListUnit = {
     NumDevice: number;
+
+    /**
+     * @example uuid
+     */
     IdDevice: string;
     OnOf: boolean;
     Active: boolean;
+
+    /**
+     * @example Фискальный регистратор
+     */
     TypeDevice: string;
+
+    /**
+     * @example KkmStrihM
+     * @todo Add enum for this fields
+     */
     IdTypeDevice: string;
+
+    /**
+     * @example 192.168.137.111
+     */
     IP: string;
     NameDevice: string;
     KktNumber: string;
     INN: string;
     TaxVariant: string;
+
+    /**
+     * @example 2017-01-13T14:55:16
+     */
     AddDate: string;
     OFD_Error: string;
     OFD_NumErrorDoc: number;
+
+    /**
+     * @example 0001-01-01T00:00:00
+     */
     OFD_DateErrorDoc: string;
+
+    /**
+     * @example 0001-01-01T00:00:00
+     */
     FN_DateEnd: string;
     FN_MemOverflowl: boolean;
     FN_IsFiscal: boolean;
