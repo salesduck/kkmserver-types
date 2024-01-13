@@ -19,6 +19,8 @@ export * from './Settlement';
 export * from './TerminalReport';
 export * from './TransactionDetails';
 
+export * from './GetGoodCodeData';
+
 export * from './List';
 export * from './PrintDocument';
 export * from './PrintLineLength';
