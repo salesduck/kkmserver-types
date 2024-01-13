@@ -21,6 +21,8 @@ export * from './TransactionDetails';
 
 export * from './GetGoodCodeData';
 
+export * from './GetCounters';
+
 export * from './List';
 export * from './PrintDocument';
 export * from './PrintLineLength';
