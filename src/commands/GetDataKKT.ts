@@ -15,7 +15,7 @@ export type GetDataKKTCommandRequest = CommandRequest & {
     /**
      * Система налогообложения (СНО) для поиска ККТ, Можно не указывать, или = "" - любое СНО
      */
-    TaxVariant: TaxVariant;
+    TaxVariant?: TaxVariant;
 };
 
 export type GetDataKKTInfo = {
@@ -45,7 +45,7 @@ export type GetDataKKTInfo = {
      */
     NameOrganization: string;
 
-    TaxVariant: TaxVariant;
+    TaxVariant?: TaxVariant;
 
     /**
      * Адрес установки

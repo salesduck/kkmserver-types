@@ -80,7 +80,7 @@ export type ListUnit = {
     NameDevice: string;
     KktNumber: string;
     INN: string;
-    TaxVariant: string;
+    TaxVariant?: string;
 
     /**
      * @example 2017-01-13T14:55:16
