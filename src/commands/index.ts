@@ -28,6 +28,9 @@ export * from './GetDataKKT';
 export * from './GetDataCheck';
 export * from './OpenCashDrawer';
 
+export * from './PaymentCash';
+export * from './DepositingCash';
+
 export * from './List';
 export * from './PrintDocument';
 export * from './PrintLineLength';
