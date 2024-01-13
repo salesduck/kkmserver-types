@@ -1,4 +1,4 @@
-import { CommandName, CommandRequest } from '@project/command';
+import { CommandName, CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * С помощью данной команды KkmServer запрашивает данные от
@@ -12,14 +12,14 @@ export type GetCommandRequest = {
     Token: string;
 
     /**
-     * Массив результатов выполнения предыдущих команд. В данном случае пустой.
+     * Массив результатов выполнения предыдущих команд
      */
-    ListRezult: any[];
+    ListRezult: CommandResponse[];
 };
 
 export type GetCommandResponse = {
     /**
-     * массив команд
+     * Массив команд
      */
     ListCommand: CommandRequest[];
 };
