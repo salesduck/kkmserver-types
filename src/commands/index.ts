@@ -24,6 +24,7 @@ export * from './GetGoodCodeData';
 export * from './GetCounters';
 
 export * from './GetDataKKT';
+export * from './GetDataCheck';
 
 export * from './List';
 export * from './PrintDocument';
