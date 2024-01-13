@@ -20,6 +20,7 @@ export * from './TerminalReport';
 export * from './TransactionDetails';
 
 export * from './GetGoodCodeData';
+export * from './GetLineLength';
 
 export * from './GetCounters';
 
