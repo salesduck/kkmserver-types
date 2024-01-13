@@ -27,6 +27,7 @@ export enum CommandName {
     PAYMENT_CASH = 'PaymentCash',
     GET_DATA_KKT = 'GetDataKKT',
     GET_COMMAND = 'GetCommand',
+    CLOSE_SHIFT = 'CloseShift',
     KKM_REG_OFD = 'KkmRegOfd',
     GET_WEIGHT = 'GetWeight',
     GET_REZULT = 'GetRezult',

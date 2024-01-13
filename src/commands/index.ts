@@ -34,6 +34,9 @@ export * from './DepositingCash';
 export * from './ZReport';
 export * from './XReport';
 
+export * from './OpenShift';
+export * from './CloseShift';
+
 export * from './List';
 export * from './PrintDocument';
 export * from './PrintLineLength';
