@@ -1,6 +1,6 @@
 {
     "name": "@salesduck/kkmserver-types",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "description": "Пакет с типами данных для kkmserver.ru",
     "types": "build/index.d.ts",
     "repository": "git@github.com:salesduck/kkmserver-types.git",
