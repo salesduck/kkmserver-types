@@ -1,43 +1,37 @@
-export * from './Calibrate';
-export * from './GetCommand';
-export * from './GetRezult';
-export * from './GetWeight';
-
-export * from './OutputOnCustomerDisplay';
-export * from './OptionsCustomerDisplay';
-export * from './ClearCustomerDisplay';
-
-export * from './AuthConfirmationByPaymentCard'
+export * from './AuthConfirmationByPaymentCard';
 export * from './AuthorisationByPaymentCard';
+export * from './Calibrate';
 export * from './CancelAuthorisationByPaymentCard';
 export * from './CancelPaymentByPaymentCard';
+export * from './ClearCustomerDisplay';
+export * from './CloseShift';
+export * from './DepositingCash';
 export * from './EmergencyReversal';
+export * from './GetCommand';
+export * from './GetCounters';
+export * from './GetDataCheck';
+export * from './GetDataKKT';
+export * from './GetGoodCodeData';
+export * from './GetLineLength';
+export * from './GetRezult';
+export * from './GetWeight';
+export * from './KkmRegOfd';
+export * from './List';
+export * from './OpenCashDrawer';
+export * from './OpenShift';
+export * from './OptionsCustomerDisplay';
+export * from './OutputOnCustomerDisplay';
 export * from './PayByPaymentCard';
+export * from './PaymentCash';
+export * from './PrintDocument';
+export * from './PrintLineLength';
+export * from './PrintOpenCashDrawer';
 export * from './PrintSlipOnTerminal';
+export * from './RegisterCheck';
 export * from './ReturnPaymentByPaymentCard';
 export * from './Settlement';
 export * from './TerminalReport';
 export * from './TransactionDetails';
-
-export * from './GetGoodCodeData';
-export * from './GetLineLength';
-
-export * from './GetCounters';
-
-export * from './GetDataKKT';
-export * from './GetDataCheck';
-export * from './OpenCashDrawer';
-
-export * from './PaymentCash';
-export * from './DepositingCash';
-
-export * from './ZReport';
+export * from './ValidationMarkingCode';
 export * from './XReport';
-
-export * from './OpenShift';
-export * from './CloseShift';
-
-export * from './List';
-export * from './PrintDocument';
-export * from './PrintLineLength';
-export * from './PrintOpenCashDrawer';
+export * from './ZReport';

@@ -38,8 +38,8 @@ export enum RegistrationCommand {
  * @todo так то их больше чем тут перечислено
  */
 export enum FfdVersion {
-    _1_0 = 1,
-    _1_05 = 2
+    FFD_1_0 = 1,
+    FFD_1_05 = 2
 }
 
 /**

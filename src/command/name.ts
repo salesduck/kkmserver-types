@@ -31,7 +31,7 @@ export enum CommandName {
     KKM_REG_OFD = 'KkmRegOfd',
     GET_WEIGHT = 'GetWeight',
     GET_REZULT = 'GetRezult',
-    SETTLEMENT= 'Settlement',
+    SETTLEMENT = 'Settlement',
     OPEN_SHIFT = 'OpenShift',
     CALIBRATE = 'Calibrate',
     X_REPORT = 'XReport',
