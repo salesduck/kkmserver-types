@@ -4,7 +4,11 @@ import { Register } from './Register';
 import { BarCode } from './BarCode';
 
 export type CheckString = {
+    /**
+     * Строка с печатью штрих-кода
+     */
     BarCode?: BarCode;
+
     /**
      * Строка с печатью простого текста
      */

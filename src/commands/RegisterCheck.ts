@@ -24,22 +24,22 @@ export enum TypeCheck {
     /**
      * Покупка/расход;
      */
-    PURCHASE = 10,
+    BUY = 10,
 
     /**
      * Возврат покупки/расхода;
      */
-    PURCHASE_RETURN = 11,
+    BUYBACK = 11,
 
     /**
      * Корректировка покупки/расхода;
      */
-    PURCHASE_CORRECTION = 12,
+    BUY_CORRECTION = 12,
 
     /**
      * Корректировка возврата покупки/расхода; (>=ФФД 1.1)
      */
-    PURCHASE_RETURN_CORRECTION = 13
+    BUYBACK_CORRECTION = 13
 }
 
 /**

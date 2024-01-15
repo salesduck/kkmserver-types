@@ -56,7 +56,7 @@ export type ValidationMarkingCodeCommandRequest = CommandRequest & {
     /**
      * Заводской номер ККМ для поиска. Если "" то ККМ ищется только по NumDevice,
      */
-    KktNumber: string;
+    KktNumber?: string;
 
     /**
      * ИНН для поиска. Если "" то ищется только по NumDevice,
