@@ -9,14 +9,14 @@ export type DepositingCashCommandRequest = CommandRequest<'DepositingCash'> & {
      *
      * @example 'Kазакова Н.А.'
      */
-    CashierName: string;
+    CashierName?: string;
 
     /**
      * ИНН продавца тег ОФД 1203
      *
      * @example '430601071197'
      */
-    CashierVATIN: string;
+    CashierVATIN?: string;
 
     /**
      * Сумма внесения наличных

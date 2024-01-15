@@ -5,7 +5,21 @@ import { GetDataKKTInfo } from './GetDataKKT';
 /**
  * Печать Z отчета
  */
-export type ZReportCommandRequest = CommandRequest<'ZReport'>;
+export type ZReportCommandRequest = CommandRequest<'ZReport'> & {
+    /**
+     * Продавец, тег ОФД 1021
+     *
+     * @example 'Kазакова Н.А.'
+     */
+    CashierName?: string;
+
+    /**
+     * ИНН продавца тег ОФД 1203
+     *
+     * @example '430601071197'
+     */
+    CashierVATIN?: string;
+};
 
 export type ZReportCommandResponse = CommandResponse<'ZReport'> & {
     /**
