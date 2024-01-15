@@ -38,8 +38,10 @@ export type UserAttribute = {
 export type RegisterCheckCommandRequest = CommandRequest<'RegisterCheck'> & {
     /**
      * Тип чека, Тег 1054
+     *
+     * Не обязательный если IsFiscalCheck = false
      */
-    TypeCheck: TypeCheck;
+    TypeCheck?: TypeCheck;
 
     /**
      * Это фискальный или не фискальный чек
