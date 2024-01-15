@@ -1,4 +1,4 @@
-import { CommandName, CommandRequest, CommandResponse } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Команда предназначена для проверки корректности сканировани ШК кода маркировки товар
@@ -10,9 +10,7 @@ import { CommandName, CommandRequest, CommandResponse } from '@project/command';
  *  Без идентификатора экземпляра товара: EAN8, EAN13, EAN14
  *  С идентификатором экземпляра товара: GS1, ШК шуб, ШК табачной продукции., ЕГАИС-2, ЕГАИС-3
  */
-export type GetGoodCodeDataCommandRequest = CommandRequest & {
-    Command: CommandName.GET_GOOD_CODE_DATA;
-
+export type GetGoodCodeDataCommandRequest = CommandRequest<'GetGoodCodeData'> & {
     /**
      * Штрих-код маркировки товара со сканера (нужно настроить сканер так чтобы
      * не проглатывал управляющие символы)
@@ -23,16 +21,7 @@ export type GetGoodCodeDataCommandRequest = CommandRequest & {
 /**
  * Тип ШК
  */
-export enum ProductCodeType {
-    NOT_PARSE = 'NotParse',
-    EAN8 = 'EAN8',
-    EAN13 = 'EAN13',
-    ITF14 = 'ITF14',
-    GS1 = 'GS1',
-    Fur = 'Fur',
-    EGAIS2 = 'EGAIS2',
-    EGAIS3 = 'EGAIS3'
-}
+export type ProductCodeType = 'NotParse' | 'EAN8' | 'EAN13' | 'ITF14' | 'GS1' | 'Fur' | 'EGAIS2' | 'EGAIS3';
 
 export type DataProductCode = {
     /**
@@ -99,8 +88,6 @@ export type DataProductCode = {
     Errors: string;
 };
 
-export type GetGoodCodeDataCommandResponse = CommandResponse & {
-    Command: CommandName.GET_GOOD_CODE_DATA;
-
+export type GetGoodCodeDataCommandResponse = CommandResponse<'GetGoodCodeData'> & {
     DataProductCode: DataProductCode;
 };

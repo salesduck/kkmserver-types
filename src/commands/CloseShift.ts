@@ -1,35 +1,24 @@
-import { CommandName, CommandRequest, CommandResponse, TaxVariant } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
+
+import { GetDataKKTInfo } from './GetDataKKT';
 
 /**
  * Закрыть смену
  */
-export type CloseShiftCommandRequest = CommandRequest & {
-    Command: CommandName.CLOSE_SHIFT;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
-    /**
-     * Система налогообложения (СНО) для поиска ККТ, Можно не указывать, или = "" - любое СНО
-     */
-    TaxVariant?: TaxVariant;
-
+export type CloseShiftCommandRequest = CommandRequest<'CloseShift'> & {
     /**
      * Продавец, тег ОФД 1021
      *
      * @example 'Иванов И.И.';
      */
-    CashierName: string;
+    CashierName?: string;
 
     /**
      * ИНН продавца тег ОФД 1203
      *
      * @example '430601071197'
      */
-    CashierVATIN: string;
+    CashierVATIN?: string;
 
     /**
      * Не печатать чек на бумагу
@@ -42,9 +31,7 @@ export type CloseShiftCommandRequest = CommandRequest & {
     IdDevice?: string;
 };
 
-export type CloseShiftCommandResponse = CommandResponse & {
-    Command: CommandName.CLOSE_SHIFT;
-
+export type CloseShiftCommandResponse = CommandResponse<'CloseShift'> & {
     /**
      * Номер документа
      */
@@ -59,4 +46,11 @@ export type CloseShiftCommandResponse = CommandResponse & {
      * @example 't=20170904T141100&fn=9999078900002287&i=108&fp=605445600'
      */
     QRCode: string;
+
+    /**
+     * @example "https://check.ofd.ru/rec/1615012884/0000000007015434/9999078902003809/433/2132578533"
+     */
+    URL: string;
+
+    Info?: GetDataKKTInfo;
 };

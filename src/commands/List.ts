@@ -1,21 +1,9 @@
-import { CommandName, CommandStatus } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Получение списка устройств
  */
-export type ListCommandRequest = {
-    Command: CommandName.LIST;
-
-    /**
-     * Отбор по номеру устройства. Число. Если 0 или не указано то с любым номером
-     */
-    NumDevice?: number;
-
-    /*
-     * Отбор по ИНН. Строка. Если "" или не указано то первое не блокированное на сервере
-     */
-    InnKkm?: string;
-
+export type ListCommandRequest = CommandRequest<'List'> & {
     /*
      * Отбор активных. Булево. Если null или не указано то активные и не активные
      */
@@ -103,9 +91,6 @@ export type ListUnit = {
     PaperOver: boolean;
 };
 
-export type ListCommandResponse = {
-    Command: CommandName.LIST;
+export type ListCommandResponse = CommandResponse<'List'> & {
     ListUnit: ListUnit[];
-    Error: string;
-    Status: CommandStatus;
 };

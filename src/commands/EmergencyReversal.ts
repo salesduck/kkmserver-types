@@ -1,26 +1,16 @@
-import { CommandName, CommandRequest, CommandResponse } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Аварийная отмена операции (Метод отменяет последнюю транзакцию)
  */
-export type EmergencyReversalCommandRequest = CommandRequest & {
-    Command: CommandName.EMERGENCY_REVERSAL;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
+export type EmergencyReversalCommandRequest = CommandRequest<'EmergencyReversal'> & {
     /**
      * Полный банковский идентификатор транзакции, полученный в PayByPaymentCard
      */
     UniversalID: string;
 };
 
-export type EmergencyReversalCommandResponse = CommandResponse & {
-    Command: CommandName.EMERGENCY_REVERSAL;
-
+export type EmergencyReversalCommandResponse = CommandResponse<'EmergencyReversal'> & {
     /**
      * @example 'CN:1254********6845;RN:26;RRN:5486265211;AC:783451264186418'
      */

@@ -1,26 +1,16 @@
-import { CommandName, CommandRequest, CommandResponse } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Блокировка суммы на счете карты
  */
-export type AuthorisationByPaymentCardCommandRequest = CommandRequest & {
-    Command: CommandName.AUTHORISATION_BY_PAYMENT_CARD;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
+export type AuthorisationByPaymentCardCommandRequest = CommandRequest<'AuthorisationByPaymentCard'> & {
     /**
      * Сумма оплаты
      */
     Amount: number;
 };
 
-export type AuthorisationByPaymentCardCommandResponse = CommandResponse & {
-    Command: CommandName.AUTHORISATION_BY_PAYMENT_CARD;
-
+export type AuthorisationByPaymentCardCommandResponse = CommandResponse<'AuthorisationByPaymentCard'> & {
     /**
      * СОХРАНИТЕ ЭТО ПОЛЕ! Понадобится для отмены или возврата по транзакции*
      *

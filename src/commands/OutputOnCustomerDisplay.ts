@@ -1,11 +1,9 @@
-import { CommandName, CommandRequest, CommandResponse } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Вывести на экран покупателя
  */
-export type OutputOnCustomerDisplayCommandRequest = CommandRequest & {
-    Command: CommandName.OUTPUT_ON_CUSTOMER_DISPLAY;
-
+export type OutputOnCustomerDisplayCommandRequest = CommandRequest<'OutputOnCustomerDisplay'> & {
     /**
      * Вывод верхней строки на дисплей
      *
@@ -31,6 +29,4 @@ export type OutputOnCustomerDisplayCommandRequest = CommandRequest & {
     BottomString: string;
 };
 
-export type OutputOnCustomerDisplayCommandResponse = CommandResponse & {
-    Command: CommandName.OUTPUT_ON_CUSTOMER_DISPLAY;
-};
+export type OutputOnCustomerDisplayCommandResponse = CommandResponse<'OutputOnCustomerDisplay'>;

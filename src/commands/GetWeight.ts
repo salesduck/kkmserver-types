@@ -1,12 +1,10 @@
-import { CommandName, CommandRequest, CommandResponse } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Получить вес
  */
-export type GetWeightCommandRequest = CommandRequest & {
-    Command: CommandName.GET_WEIGHT;
-};
+export type GetWeightCommandRequest = CommandRequest<'GetWeight'>;
 
-export type GetWeightCommandResponse = CommandResponse & {
+export type GetWeightCommandResponse = CommandResponse<'GetWeight'> & {
     Weight: number;
 };

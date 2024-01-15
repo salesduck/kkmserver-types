@@ -1,10 +1,27 @@
+import { TaxVariant } from './checkStrings';
 import { CommandName } from './name';
 
-export type CommandRequest = {
+export type CommandRequest<TName extends CommandName = never> = {
     /**
      * Команда серверу
      */
-    Command: CommandName;
+    Command: TName;
+
+    /**
+     * Заводской номер ККМ для поиска. Если "" то ККМ ищется только по NumDevice,
+     */
+    KktNumber?: string;
+
+    /**
+     * Система налогообложения (СНО) для поиска ККТ, Можно не указывать, или = "" - любое СНО
+     */
+    TaxVariant?: TaxVariant;
+
+    /**
+     * ИНН для поиска. Если "" то ищется только по NumDevice,
+     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
+     */
+    InnKkm?: string;
 
     /**
      * Номер устройства. Если 0 то первое не блокированное на сервере

@@ -1,22 +1,9 @@
-import { CommandName, CommandRequest, CommandResponse, TaxVariant } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Получить счетчики ФН
  */
-export type GetCountersCommandRequest = CommandRequest & {
-    Command: CommandName.GET_COUNTERS;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
-    /**
-     * Система налогообложения (СНО) для поиска ККТ, Можно не указывать, или = "" - любое СНО
-     */
-    TaxVariant?: TaxVariant;
-};
+export type GetCountersCommandRequest = CommandRequest<'GetCounters'>;
 
 export type Counter = {
     СountersType: 'Total' | 'Shift';
@@ -38,8 +25,6 @@ export type Counter = {
     CorrectionsSum: number;
 };
 
-export type GetCountersCommandResponse = CommandResponse & {
-    Command: CommandName.GET_COUNTERS;
-
+export type GetCountersCommandResponse = CommandResponse<'GetCounters'> & {
     Сounters: Counter[];
 };

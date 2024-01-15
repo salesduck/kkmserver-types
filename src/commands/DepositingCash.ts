@@ -1,22 +1,9 @@
-import { CommandName, CommandRequest, CommandResponse, TaxVariant } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Печать чека внесения
  */
-export type DepositingCashCommandRequest = CommandRequest & {
-    Command: CommandName.DEPOSITING_CASH;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
-    /**
-     * Система налогообложения (СНО) для поиска ККТ, Можно не указывать, или = "" - любое СНО
-     */
-    TaxVariant?: TaxVariant;
-
+export type DepositingCashCommandRequest = CommandRequest<'DepositingCash'> & {
     /**
      * Продавец, тег ОФД 1021
      *
@@ -37,6 +24,4 @@ export type DepositingCashCommandRequest = CommandRequest & {
     Amount: number;
 };
 
-export type DepositingCashCommandResponse = CommandResponse & {
-    Command: CommandName.DEPOSITING_CASH;
-};
+export type DepositingCashCommandResponse = CommandResponse<'DepositingCash'>;

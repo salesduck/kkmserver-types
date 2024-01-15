@@ -1,31 +1,21 @@
-import { CommandName, CommandRequest, CommandResponse } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Списать блокированную сумму со счета карты
  */
-export type AuthConfirmationByPaymentCardCommandRequest = CommandRequest & {
-    Command: CommandName.AUTH_CONFIRMATION_BY_PAYMENT_CARD;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
+export type AuthConfirmationByPaymentCardCommandRequest = CommandRequest<'AuthConfirmationByPaymentCard'> & {
     /**
      * Сумма оплаты
      */
     Amount: number;
 
     /**
-     *Полный банковский идентификатор транзакции, полученный в AuthorisationByPaymentCard
+     * Полный банковский идентификатор транзакции, полученный в AuthorisationByPaymentCard
      */
     UniversalID: string;
 };
 
-export type AuthConfirmationByPaymentCardCommandResponse = CommandResponse & {
-    Command: CommandName.AUTH_CONFIRMATION_BY_PAYMENT_CARD;
-
+export type AuthConfirmationByPaymentCardCommandResponse = CommandResponse<'AuthConfirmationByPaymentCard'> & {
     /**
      * @example 'CN:1254********6845;RN:26;RRN:5486265211;AC:783451264186418'
      */

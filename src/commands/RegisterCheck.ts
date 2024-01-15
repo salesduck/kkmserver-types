@@ -1,61 +1,21 @@
-import { CommandName, CommandRequest, CommandResponse, TaxVariant, CheckString } from '@project/command';
+import { CommandRequest, CommandResponse, TaxVariant, CheckString } from '@project/command';
 
-export enum TypeCheck {
-    /**
-     * Продажа/приход;
-     */
-    SELL = 0,
-
-    /**
-     * Возврат продажи/прихода;
-     */
-    PAYBACK = 1,
-
-    /**
-     * Корректировка продажи/прихода;
-     */
-    SELL_CORRECTION = 2,
-
-    /**
-     * Корректировка возврата продажи/прихода; (>=ФФД 1.1)
-     */
-    PAYBACK_CORRECTION = 3,
-
-    /**
-     * Покупка/расход;
-     */
-    BUY = 10,
-
-    /**
-     * Возврат покупки/расхода;
-     */
-    BUYBACK = 11,
-
-    /**
-     * Корректировка покупки/расхода;
-     */
-    BUY_CORRECTION = 12,
-
-    /**
-     * Корректировка возврата покупки/расхода; (>=ФФД 1.1)
-     */
-    BUYBACK_CORRECTION = 13
-}
+export type TypeCheck =
+    | 0 // Продажа/приход
+    | 1 // Возврат продажи/прихода;
+    | 2 // Корректировка продажи/прихода;
+    | 3 // Корректировка возврата продажи/прихода; (>=ФФД 1.1)
+    | 10 // Покупка/расход;
+    | 11 // Возврат покупки/расхода;
+    | 12 // Корректировка покупки/расхода;
+    | 13; // Корректировка возврата покупки/расхода; (>=ФФД 1.1)
 
 /**
  * Тип коррекции
  */
-export enum CorrectionType {
-    /**
-     * Самостоятельно
-     */
-    SELF = 0,
-
-    /**
-     * По предписанию
-     */
-    PRESCRIPTION = 1
-}
+export type CorrectionType =
+    | 0 // Самостоятельно
+    | 1; // По предписанию
 
 /**
  * Дополнительный реквизит пользователя тег ОФД 1084
@@ -75,24 +35,11 @@ export type UserAttribute = {
 /**
  * Печать чека
  */
-export type RegisterCheckCommandRequest = CommandRequest & {
-    Command: CommandName.REGISTER_CHECK;
-
+export type RegisterCheckCommandRequest = CommandRequest<'RegisterCheck'> & {
     /**
      * Тип чека, Тег 1054
      */
     TypeCheck: TypeCheck;
-
-    /**
-     * Заводской номер ККМ для поиска. Если "" то ККМ ищется только по NumDevice,
-     */
-    KktNumber?: string;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
 
     /**
      * Это фискальный или не фискальный чек
@@ -306,9 +253,7 @@ export type RegisterCheckCommandRequest = CommandRequest & {
     CashProvision?: number;
 };
 
-export type RegisterCheckCommandResponse = CommandResponse & {
-    Command: CommandName.REGISTER_CHECK;
-
+export type RegisterCheckCommandResponse = CommandResponse<'RegisterCheck'> & {
     /**
      * Номер документа
      */

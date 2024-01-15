@@ -1,28 +1,51 @@
-import { CommandName, CommandRequest, CommandResponse, TaxVariant, SessionState } from '@project/command';
+import { CommandRequest, CommandResponse, TaxVariant, SessionState } from '@project/command';
 
 /**
  * Получить текущее состояние ККТ
  */
-export type GetDataKKTCommandRequest = CommandRequest & {
-    Command: CommandName.GET_DATA_KKT;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
-    /**
-     * Система налогообложения (СНО) для поиска ККТ, Можно не указывать, или = "" - любое СНО
-     */
-    TaxVariant?: TaxVariant;
-};
+export type GetDataKKTCommandRequest = CommandRequest<'GetDataKKT'>;
 
 export type GetDataKKTInfo = {
+    /**
+     * @example '504404744207'
+     */
+    InnOrganization: string;
+
+    /**
+     * @example 'ООО "Рога и Копыта"'
+     */
+    NameOrganization: string;
+    TaxVariant?: TaxVariant;
+
+    /**
+     * Адрес установки
+     *
+     * @example 'Москва, ул. Ильинка, 9'
+     */
+    AddressSettle: string;
+    PlaceSettle?: string;
+    SenderEmail?: string;
+    EncryptionMode: boolean;
+    OfflineMode: boolean;
+    AutomaticMode: boolean;
+    AutomaticNumber?: string;
+    InternetMode: boolean;
+    BSOMode: boolean;
+    ServiceMode: boolean;
+    PrinterAutomatic?: boolean;
+    SaleExcisableGoods?: boolean;
+    SignOfGambling?: boolean;
+    SignOfLottery?: boolean;
+    SaleMarking?: boolean;
+    SignPawnshop?: boolean;
+    SignAssurance?: boolean;
+    SignOfAgent?: string;
+
     /**
      * @example 'https://connect.ofd-ya.ru'
      */
     UrlServerOfd: string;
+
     /**
      * @example '7790'
      */
@@ -39,31 +62,13 @@ export type GetDataKKTInfo = {
      * @example '504404744207'
      */
     InnOfd: string;
+    OFD_Error: string;
+    OFD_NumErrorDoc: number;
 
     /**
-     * @example 'ООО "Рога и Копыта"'
+     * @example '2017-01-13T14:56:00'
      */
-    NameOrganization: string;
-
-    TaxVariant?: TaxVariant;
-
-    /**
-     * Адрес установки
-     *
-     * @example 'Москва, ул. Ильинка, 9'
-     */
-    AddressSettle: string;
-    EncryptionMode: boolean;
-    OfflineMode: boolean;
-    AutomaticMode: boolean;
-    InternetMode: boolean;
-    BSOMode: boolean;
-    ServiceMode: boolean;
-
-    /**
-     * @example '504404744207'
-     */
-    InnOrganization: string;
+    OFD_DateErrorDoc: string;
 
     /**
      * Заводской номер
@@ -86,27 +91,44 @@ export type GetDataKKTInfo = {
      */
     RegNumber: string;
 
-    Command: string;
     FN_IsFiscal: boolean;
-    OFD_Error: string;
-    OFD_NumErrorDoc: number;
+    FN_MemOverflowl?: boolean;
 
     /**
-     * @example '2017-01-13T14:56:00'
+     * @example '2024-10-18T00:00:00'
      */
-    OFD_DateErrorDoc: string;
+    FN_DateStart?: string;
 
     /**
      * @example '2018-02-01T00:00:00'
      */
     FN_DateEnd: string;
 
+    FFDVersion?: string;
+    FFDVersionFN?: string;
+    FFDVersionKKT?: string;
+    OnOff?: boolean;
+    Active?: boolean;
     SessionState: SessionState;
+    PaperOver?: boolean;
+    BalanceCash?: number;
+
+    /**
+     * @example '2024-01-15T16:29:34'
+     */
+    DateTimeKKT?: string;
+    /**
+     * @example '3.0.7733'
+     */
+    Firmware_Version: string;
+    Firmware_Status: number;
+    /**
+     * @example '2154-06-06T13:04:56'
+     */
+    LicenseExpirationDate: string;
 };
 
-export type GetDataKKTCommandResponse = CommandResponse & {
-    Command: CommandName.GET_DATA_KKT;
-
+export type GetDataKKTCommandResponse = CommandResponse<'GetDataKKT'> & {
     /**
      * Номер последнего документа
      */

@@ -1,46 +1,21 @@
-import { CommandName, CommandRequest, CommandResponse, TaxVariant } from '@project/command';
+import { CommandRequest, CommandResponse, TaxVariant } from '@project/command';
 
-export enum RegistrationCommand {
-    /**
-     * Первичная регистрация ККМ
-     */
-    OPEN = 'Open',
-
-    /**
-     * Замена ФН
-     */
-    CHANGE_FN = 'ChangeFN',
-
-    /**
-     * Смена ОФД
-     */
-    CHANGE_OFD = 'ChangeOFD',
-
-    /**
-     * Смена реквизитов организации
-     */
-    CHANGE_ORGANIZATION = 'ChangeOrganization',
-
-    /**
-     * Смена реквизитов ККМ
-     */
-    CHANGE_KKM = 'ChangeKkm',
-
-    /**
-     * закрытие архива ФН
-     */
-    CLOSE = 'Close'
-}
+export type RegistrationCommand =
+    | 'Open' // Первичная регистрация ККМ
+    | 'ChangeFN' // Замена ФН
+    | 'ChangeOFD' // Смена ОФД
+    | 'ChangeOrganization' // Смена реквизитов организации
+    | 'ChangeKkm' // Смена реквизитов ККМ
+    | 'Close'; // Закрытие архива ФН
 
 /**
  * Версия ФФД
  *
  * @todo так то их больше чем тут перечислено
  */
-export enum FfdVersion {
-    FFD_1_0 = 1,
-    FFD_1_05 = 2
-}
+export type FfdVersion =
+    | 1 // ФФД 1.0
+    | 2; // ФФД 1.05
 
 /**
  * Данные регистрации
@@ -206,9 +181,7 @@ export type RegKkmOfd = {
  * Внимание - некоторые команды регистрации необратимы!!!!!
  * Важно понимать что делаете!!!!!
  */
-export type KkmRegOfdCommandRequest = CommandRequest & {
-    Command: CommandName.KKM_REG_OFD;
-
+export type KkmRegOfdCommandRequest = CommandRequest<'KkmRegOfd'> & {
     /**
      * Не печатать отчет
      *
@@ -237,6 +210,4 @@ export type KkmRegOfdCommandRequest = CommandRequest & {
 };
 
 // TODO: не знаю что возвращает
-export type KkmRegOfdCommandResponse = CommandResponse & {
-    Command: CommandName.KKM_REG_OFD;
-};
+export type KkmRegOfdCommandResponse = CommandResponse<'KkmRegOfd'>;

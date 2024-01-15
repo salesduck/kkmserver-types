@@ -1,17 +1,9 @@
-import { CommandName, CommandRequest, CommandResponse } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Вернуть платеж по платежной карте
  */
-export type ReturnPaymentByPaymentCardCommandRequest = CommandRequest & {
-    Command: CommandName.RETURN_PAYMENT_BY_PAYMENT_CARD;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
+export type ReturnPaymentByPaymentCardCommandRequest = CommandRequest<'ReturnPaymentByPaymentCard'> & {
     /**
      * Сумма оплаты
      */
@@ -23,9 +15,7 @@ export type ReturnPaymentByPaymentCardCommandRequest = CommandRequest & {
     UniversalID: string;
 };
 
-export type ReturnPaymentByPaymentCardCommandResponse = CommandResponse & {
-    Command: CommandName.RETURN_PAYMENT_BY_PAYMENT_CARD;
-
+export type ReturnPaymentByPaymentCardCommandResponse = CommandResponse<'ReturnPaymentByPaymentCard'> & {
     /**
      * @example 'CN:1254********6845;RN:26;RRN:5486265211;AC:783451264186418'
      */

@@ -1,11 +1,10 @@
-import { CommandName, CommandRequest, CommandResponse } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * С помощью данной команды KkmServer запрашивает данные от
  * удаленного сервера обратных вызовов
  */
-export type GetCommandRequest = {
-    Command: CommandName.GET_COMMAND;
+export type GetCommandRequest = CommandRequest<'GetCommand'> & {
     /**
      * Токен(имя клиента) для облачного сервера
      */
@@ -17,7 +16,7 @@ export type GetCommandRequest = {
     ListRezult: CommandResponse[];
 };
 
-export type GetCommandResponse = {
+export type GetCommandResponse = CommandResponse<'GetCommand'> & {
     /**
      * Массив команд
      */

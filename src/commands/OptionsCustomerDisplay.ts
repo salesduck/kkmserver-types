@@ -1,15 +1,11 @@
-import { CommandName, CommandRequest, CommandResponse } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Получить опции дисплея покупателя
  */
-export type OptionsCustomerDisplayCommandRequest = CommandRequest & {
-    Command: CommandName.OPTIONS_CUSTOMER_DISPLAY;
-};
+export type OptionsCustomerDisplayCommandRequest = CommandRequest<'OptionsCustomerDisplay'>;
 
-export type OptionsCustomerDisplayCommandResponse = CommandResponse & {
-    Command: CommandName.OPTIONS_CUSTOMER_DISPLAY;
-
+export type OptionsCustomerDisplayCommandResponse = CommandResponse<'OptionsCustomerDisplay'> & {
     /**
      * Есть вывод верхней строки
      */

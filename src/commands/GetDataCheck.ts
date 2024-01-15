@@ -1,31 +1,63 @@
-import { CommandName, CommandRequest, CommandResponse, TaxVariant } from '@project/command';
+import { CommandRequest, CommandResponse, Tax, TaxVariant } from '@project/command';
 
-export type GetDataCheckCommandRequest = CommandRequest & {
-    Command: CommandName.GET_DATA_CHECK;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
-    /**
-     * Система налогообложения (СНО) для поиска ККТ, Можно не указывать, или = "" - любое СНО
-     */
-    TaxVariant?: TaxVariant;
-
+export type GetDataCheckCommandRequest = CommandRequest<'GetDataCheck'> & {
     /**
      * Фискальный номер (ФД) чека. Если 0 - то последний чек
      */
-    FiscalNumber: number;
+    FiscalNumber?: number;
 
     /**
      * Количество копий документа (копии печатаются на ленте)
      */
-    NumberCopies: number;
+    NumberCopies?: number;
 };
 
-// TODO: не известно что возвращается
-export type GetDataCheckCommandResponse = CommandResponse & {
-    Command: CommandName.GET_DATA_CHECK;
+export type RegisterResponse = {
+    /**
+     *  @example 'Чипсы с беконом LAYS';
+     */
+    Name: string;
+    Quantity: number;
+    Amount: number;
+    Tax: Tax;
+};
+
+export type RegisterCheck = {
+    FiscalNumber: string;
+    /**
+     * @example '2024-01-11T13:10:00';
+     */
+    FiscalDate: string;
+    /**
+     * @example 'Приход';
+     */
+    CheckType: string | null;
+
+    /**
+     * @example '3830581340';
+     */
+    FiscalSign: string;
+    /**
+     * @example 'СИС. АДМИНИСТРАТОР';
+     */
+    CashierName: string;
+    CashierVATIN: string;
+    TaxVariant: TaxVariant;
+    ClientAddress: string;
+    SenderEmail: string;
+    PlaceMarket: string;
+    Register: RegisterResponse[];
+    Cash: number;
+    ElectronicPayment: number;
+    AdvancePayment: number;
+    Credit: number;
+    CashProvision: number;
+    AllSumm: number;
+};
+
+export type GetDataCheckCommandResponse = CommandResponse<'GetDataCheck'> & {
+    URL?: string;
+    QRCode?: string;
+    Slip: string;
+    RegisterCheck: RegisterCheck;
 };

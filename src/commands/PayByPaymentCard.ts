@@ -1,17 +1,9 @@
-import { CommandName, CommandRequest, CommandResponse } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Оплатить платежной картой
  */
-export type PayByPaymentCardCommandRequest = CommandRequest & {
-    Command: CommandName.PAY_BY_PAYMENT_CARD;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
+export type PayByPaymentCardCommandRequest = CommandRequest<'PayByPaymentCard'> & {
     /**
      * Номер Карты / Данные карты - если карта считывается устройством то не заполняется
      */
@@ -29,9 +21,7 @@ export type PayByPaymentCardCommandRequest = CommandRequest & {
     ReceiptNumber?: string;
 };
 
-export type PayByPaymentCardCommandResponse = CommandResponse & {
-    Command: CommandName.PAY_BY_PAYMENT_CARD;
-
+export type PayByPaymentCardCommandResponse = CommandResponse<'PayByPaymentCard'> & {
     /**
      * СОХРАНИТЕ ЭТО ПОЛЕ! Понадобится для отмены или возврата по транзакции*
      *

@@ -1,4 +1,4 @@
-import { CommandName, CommandRequest, CommandResponse, TaxVariant } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 export type GoodCodeDatas = {
     /**
@@ -50,25 +50,7 @@ export type GoodCodeDatas = {
 /**
  * Проверка кодов маркировки
  */
-export type ValidationMarkingCodeCommandRequest = CommandRequest & {
-    Command: CommandName.VALIDATION_MARKING_CODE;
-
-    /**
-     * Заводской номер ККМ для поиска. Если "" то ККМ ищется только по NumDevice,
-     */
-    KktNumber?: string;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
-    /**
-     * Система налогообложения (СНО) для поиска ККТ, Можно не указывать, или = "" - любое СНО
-     */
-    TaxVariant?: TaxVariant;
-
+export type ValidationMarkingCodeCommandRequest = CommandRequest<'ValidationMarkingCode'> & {
     /**
      * Список кодов маркировки
      */
@@ -97,7 +79,6 @@ export type MarkingCodeValidation = {
     DecryptionResult: string;
 };
 
-export type ValidationMarkingCodeCommandResponse = CommandResponse & {
-    Command: CommandName.VALIDATION_MARKING_CODE;
+export type ValidationMarkingCodeCommandResponse = CommandResponse<'ValidationMarkingCode'> & {
     MarkingCodeValidation: MarkingCodeValidation[];
 };

@@ -1,17 +1,9 @@
-import { CommandName, CommandRequest, CommandResponse } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Разблокировать сумму на счете карты
  */
-export type CancelAuthorisationByPaymentCardCommandRequest = CommandRequest & {
-    Command: CommandName.CANCEL_AUTHORISATION_BY_PAYMENT_CARD;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
+export type CancelAuthorisationByPaymentCardCommandRequest = CommandRequest<'CancelAuthorisationByPaymentCard'> & {
     /**
      * Сумма оплаты
      */
@@ -23,9 +15,7 @@ export type CancelAuthorisationByPaymentCardCommandRequest = CommandRequest & {
     UniversalID: string;
 };
 
-export type CancelAuthorisationByPaymentCardCommandResponse = CommandResponse & {
-    Command: CommandName.CANCEL_AUTHORISATION_BY_PAYMENT_CARD;
-
+export type CancelAuthorisationByPaymentCardCommandResponse = CommandResponse<'CancelAuthorisationByPaymentCard'> & {
     /**
      * @example 'CN:1254********6845;RN:26;RRN:5486265211;AC:783451264186418'
      */

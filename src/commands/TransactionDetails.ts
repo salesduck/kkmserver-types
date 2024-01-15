@@ -1,17 +1,9 @@
-import { CommandName, CommandRequest, CommandResponse } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
 
 /**
  * Получить копию слип-чека
  */
-export type TransactionDetailsCommandRequest = CommandRequest & {
-    Command: CommandName.TRANSACTION_DETAILS;
-
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
+export type TransactionDetailsCommandRequest = CommandRequest<'TransactionDetails'> & {
     /**
      * Номер Карты / Данные карты - если карта считывается устройством то не заполняется
      *
@@ -43,6 +35,4 @@ export type TransactionDetailsCommandRequest = CommandRequest & {
 };
 
 // TODO: не знаю что там возвращается
-export type TransactionDetailsCommandResponse = CommandResponse & {
-    Command: CommandName.TRANSACTION_DETAILS;
-};
+export type TransactionDetailsCommandResponse = CommandResponse<'TransactionDetails'>;

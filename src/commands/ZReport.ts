@@ -1,26 +1,13 @@
-import { CommandName, CommandRequest, CommandResponse, TaxVariant } from '@project/command';
+import { CommandRequest, CommandResponse } from '@project/command';
+
+import { GetDataKKTInfo } from './GetDataKKT';
 
 /**
  * Печать Z отчета
  */
-export type ZReportCommandRequest = CommandRequest & {
-    Command: CommandName.Z_REPORT;
+export type ZReportCommandRequest = CommandRequest<'ZReport'>;
 
-    /**
-     * ИНН для поиска. Если "" то ищется только по NumDevice,
-     * Если NumDevice = 0 а InnKkm заполнено то ККМ ищется только по InnKkm
-     */
-    InnKkm?: string;
-
-    /**
-     * Система налогообложения (СНО) для поиска ККТ, Можно не указывать, или = "" - любое СНО
-     */
-    TaxVariant?: TaxVariant;
-};
-
-export type ZReportCommandResponse = CommandResponse & {
-    Command: CommandName.Z_REPORT;
-
+export type ZReportCommandResponse = CommandResponse<'ZReport'> & {
     /**
      * Номер документа
      */
@@ -30,4 +17,12 @@ export type ZReportCommandResponse = CommandResponse & {
      * Номер смены
      */
     SessionNumber: number;
+
+    // https://check.ofd.ru/rec/1615012884/0000000007015434/9999078902003809/431/2072038103
+    URL: string;
+
+    // t=20240115T1623&fn=9999078902003809&i=431&fp=2072038103
+    QRCode: string;
+
+    Info?: GetDataKKTInfo;
 };

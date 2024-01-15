@@ -1,40 +1,39 @@
-export enum CommandName {
-    CANCEL_AUTHORISATION_BY_PAYMENT_CARD = 'CancelAuthorisationByPaymentCard',
-    AUTH_CONFIRMATION_BY_PAYMENT_CARD = 'AuthConfirmationByPaymentCard',
-    CANCEL_PAYMENT_BY_PAYMENT_CARD = 'CancelPaymentByPaymentCard',
-    RETURN_PAYMENT_BY_PAYMENT_CARD = 'ReturnPaymentByPaymentCard',
-    AUTHORISATION_BY_PAYMENT_CARD = 'AuthorisationByPaymentCard',
-    OUTPUT_ON_CUSTOMER_DISPLAY = 'OutputOnCustomerDisplay',
-    OPTIONS_CUSTOMER_DISPLAY = 'OptionsCustomerDisplay',
-    VALIDATION_MARKING_CODE = 'ValidationMarkingCode',
-    CLEAR_CUSTOMER_DISPLAY = 'ClearCustomerDisplay',
-    PRINT_OPEN_CASH_DRAWER = 'PrintOpenCashDrawer',
-    PRINT_SLIP_ON_TERMINAL = 'PrintSlipOnTerminal',
-    TRANSACTION_DETAILS = 'TransactionDetails',
-    EMERGENCY_REVERSAL = 'EmergencyReversal',
-    PAY_BY_PAYMENT_CARD = 'PayByPaymentCard',
-    GET_GOOD_CODE_DATA = 'GetGoodCodeData',
-    PRINT_LINE_LENGTH = 'PrintLineLength',
-    OPEN_CASH_DRAWER = 'OpenCashDrawer',
-    DEPOSITING_CASH = 'DepositingCash',
-    TERMINAL_REPORT = 'TerminalReport',
-    GET_LINE_LENGTH = 'GetLineLength',
-    REGISTER_CHECK = 'RegisterCheck',
-    PRINT_DOCUMENT = 'PrintDocument',
-    CONTINUE_PRINT = 'ContinuePrint',
-    GET_DATA_CHECK = 'GetDataCheck',
-    GET_COUNTERS = 'GetCounters',
-    PAYMENT_CASH = 'PaymentCash',
-    GET_DATA_KKT = 'GetDataKKT',
-    GET_COMMAND = 'GetCommand',
-    CLOSE_SHIFT = 'CloseShift',
-    KKM_REG_OFD = 'KkmRegOfd',
-    GET_WEIGHT = 'GetWeight',
-    GET_REZULT = 'GetRezult',
-    SETTLEMENT = 'Settlement',
-    OPEN_SHIFT = 'OpenShift',
-    CALIBRATE = 'Calibrate',
-    X_REPORT = 'XReport',
-    Z_REPORT = 'ZReport',
-    LIST = 'List'
-}
+export type CommandName =
+    | 'CancelAuthorisationByPaymentCard'
+    | 'AuthConfirmationByPaymentCard'
+    | 'CancelPaymentByPaymentCard'
+    | 'ReturnPaymentByPaymentCard'
+    | 'AuthorisationByPaymentCard'
+    | 'OutputOnCustomerDisplay'
+    | 'OptionsCustomerDisplay'
+    | 'ValidationMarkingCode'
+    | 'ClearCustomerDisplay'
+    | 'PrintOpenCashDrawer'
+    | 'PrintSlipOnTerminal'
+    | 'TransactionDetails'
+    | 'EmergencyReversal'
+    | 'PayByPaymentCard'
+    | 'GetGoodCodeData'
+    | 'PrintLineLength'
+    | 'OpenCashDrawer'
+    | 'DepositingCash'
+    | 'TerminalReport'
+    | 'GetLineLength'
+    | 'RegisterCheck'
+    | 'PrintDocument'
+    | 'ContinuePrint'
+    | 'GetDataCheck'
+    | 'GetCounters'
+    | 'PaymentCash'
+    | 'GetDataKKT'
+    | 'GetCommand'
+    | 'Settlement'
+    | 'CloseShift'
+    | 'KkmRegOfd'
+    | 'GetWeight'
+    | 'GetRezult'
+    | 'OpenShift'
+    | 'Calibrate'
+    | 'XReport'
+    | 'ZReport'
+    | 'List';
