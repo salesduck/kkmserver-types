@@ -5,9 +5,13 @@ import { CommandRequest, CommandResponse } from '@project/command';
  */
 export type GetCountersCommandRequest = CommandRequest<'GetCounters'>;
 
+export type СountersType = 'Total' | 'Shift';
+
+export type ReceiptType = 'Shell' | 'ShellReturn' | 'Buy' | 'BuyReturn';
+
 export type Counter = {
-    СountersType: 'Total' | 'Shift';
-    ReceiptType: 'Shell' | 'ShellReturn' | 'Buy' | 'BuyReturn';
+    СountersType: СountersType;
+    ReceiptType: ReceiptType;
     Count: number;
     Sum: number;
     Cash: number;

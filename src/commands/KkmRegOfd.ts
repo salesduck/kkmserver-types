@@ -1,21 +1,24 @@
 import { CommandRequest, CommandResponse, TaxVariant } from '@project/command';
 
-export type RegistrationCommand =
-    | 'Open' // Первичная регистрация ККМ
-    | 'ChangeFN' // Замена ФН
-    | 'ChangeOFD' // Смена ОФД
-    | 'ChangeOrganization' // Смена реквизитов организации
-    | 'ChangeKkm' // Смена реквизитов ККМ
-    | 'Close'; // Закрытие архива ФН
+/**
+ * Open - Первичная регистрация ККМ
+ * ChangeFN - Замена ФН
+ * ChangeOFD - Смена ОФД
+ * ChangeOrganization - Смена реквизитов организации
+ * ChangeKkm - Смена реквизитов ККМ
+ * Close - Закрытие архива ФН
+ */
+export type RegistrationCommand = 'Open' | 'ChangeFN' | 'ChangeOFD' | 'ChangeOrganization' | 'ChangeKkm' | 'Close';
 
 /**
  * Версия ФФД
  *
+ * 1 - ФФД 1.0
+ * 2 - ФФД 1.05
+ *
  * @todo так то их больше чем тут перечислено
  */
-export type FfdVersion =
-    | 1 // ФФД 1.0
-    | 2; // ФФД 1.05
+export type FfdVersion = 1 | 2;
 
 /**
  * Данные регистрации
