@@ -1,7 +1,7 @@
 import { TaxVariant } from './checkStrings';
 import { CommandName } from './name';
 
-export type CommandRequest<TName extends CommandName = never> = {
+export type CommandRequest<TName extends CommandName = CommandName> = {
     /**
      * Команда серверу
      */
