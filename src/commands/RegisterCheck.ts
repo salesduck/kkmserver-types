@@ -71,16 +71,20 @@ export type RegisterCheckCommandRequest = CommandRequest<'RegisterCheck'> & {
     /**
      * Продавец, тег ОФД 1021
      *
+     * Не обязательный, если IsFiscalCheck = false;
+     *
      * @example 'Иванов И.И.';
      */
-    CashierName: string;
+    CashierName?: string;
 
     /**
      * ИНН продавца тег ОФД 1203
      *
+     * Не обязательный, если IsFiscalCheck = false;
+     *
      * @example '430601071197'
      */
-    CashierVATIN: string;
+    CashierVATIN?: string;
 
     /**
      * Телефон или е-Майл покупателя, Тег ОФД 1008
