@@ -1,6 +1,6 @@
 {
     "name": "@salesduck/kkmserver-types",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "description": "Type definitions for kkmserver.ru",
     "types": "build/index.d.ts",
     "repository": "git@github.com:salesduck/kkmserver-types.git",
@@ -13,9 +13,8 @@
         "kkmserver.ru"
     ],
     "files": [
-        "build",
-        "*.d.ts",
-        "*.d.ts.map"
+        "build/**/*.d.ts",
+        "build/**/.d.ts.map"
     ],
     "scripts": {
         "clean": "rm -rf build && rm -rf ./tsconfig.build.tsbuildinfo",
