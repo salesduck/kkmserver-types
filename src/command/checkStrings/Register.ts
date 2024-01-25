@@ -300,7 +300,7 @@ export type Register = {
      *   Quantity = 2,
      *   PackageQuantity = 22
      */
-    PackageQuantity: number | null;
+    PackageQuantity?: number | null;
 
     /**
      * Цифровой код страны происхождения товара в соответствии с Общероссийским
