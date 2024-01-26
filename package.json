@@ -1,6 +1,6 @@
 {
     "name": "@salesduck/kkmserver-types",
-    "version": "0.6.2",
+    "version": "0.6.3",
     "description": "Type definitions for kkmserver.ru",
     "types": "build/index.d.ts",
     "repository": "git@github.com:salesduck/kkmserver-types.git",
